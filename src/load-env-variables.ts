@@ -1,12 +1,14 @@
 export interface EnvVariables {
   clientId: string;
   clientSecret: string;
+  playlistIds: string[];
 }
 
 export function loadEnvVariables(): EnvVariables {
   return {
     clientId: loadVariable('CLIENT_ID'),
     clientSecret: loadVariable('CLIENT_SECRET'),
+    playlistIds: JSON.parse(loadVariable('PLAYLIST_IDS')),
   };
 }
 
